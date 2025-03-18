@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로또 번호 생성기</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 20px;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 400px;
+        margin: auto;
+      }
+
+      input,
+      button {
+        margin: 5px;
+        padding: 10px;
+        font-size: 16px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      #result {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+      .ball {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        font-weight: bold;
+        border-radius: 50%;
+        color: white;
+        margin: 5px;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>로또 번호 생성기</h1>
+      <button id="generate">랜덤 6개 생성</button>
+
+      <label for="fixedNumbers">고정 숫자 (쉼표로 구분):</label>
+      <input type="text" id="fixedNumbers" placeholder="예: 3,7,15" />
+
+      <label for="excludedNumbers">제외 숫자 (쉼표로 구분):</label>
+      <input type="text" id="excludedNumbers" placeholder="예: 10,20,30" />
+
+      <button id="clickGenerate">고정/제외 포함 생성</button>
+
+      <div id="result"></div>
+    </div>
+
+    <script src="lotto.js"></script>
+  </body>
+</html>
