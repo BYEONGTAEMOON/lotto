@@ -19,7 +19,8 @@ function getBallColor(number) {
 
 document.addEventListener("DOMContentLoaded", function () {
   const generateButton = document.getElementById("generate");
-  const clickGenerate = document.getElementById("clickGenerate");
+  const fixedGenerateButton = document.getElementById("fixedGenerate");
+  const excludedGenerateButton = document.getElementById("excludedGenerate");
   const resultContainer = document.getElementById("result");
   const fixedNumbersInput = document.getElementById("fixedNumbers");
   const excludedNumbersInput = document.getElementById("excludedNumbers");
@@ -49,52 +50,13 @@ document.addEventListener("DOMContentLoaded", function () {
     generateAndDisplay();
   });
 
-  clickGenerate.addEventListener("click", function () {
+  fixedGenerateButton.addEventListener("click", function () {
     const fixedNumbers = parseNumbers(fixedNumbersInput);
+    generateAndDisplay(fixedNumbers, []);
+  });
+
+  excludedGenerateButton.addEventListener("click", function () {
     const excludedNumbers = parseNumbers(excludedNumbersInput);
-    generateAndDisplay(fixedNumbers, excludedNumbers);
+    generateAndDisplay([], excludedNumbers);
   });
 });
-
-// function generateLottoNumbers(fixedNumbers = [], excludedNumbers = []) {
-//   const numbers = new Set(fixedNumbers);
-//   while (numbers.size < 6) {
-//     const randomNumber = Math.floor(Math.random() * 45) + 1;
-//     if (!numbers.has(randomNumber) && !excludedNumbers.includes(randomNumber)) {
-//       numbers.add(randomNumber);
-//     }
-//   }
-//   return Array.from(numbers).sort((a, b) => a - b);
-// }
-//
-// document.addEventListener("DOMContentLoaded", function () {
-//   const generateButton = document.getElementById("generate");
-//   const clickGenerate = document.getElementById("clickGenerate");
-//   const resultContainer = document.getElementById("result");
-//   const fixedNumbersInput = document.getElementById("fixedNumbers");
-//   const excludedNumbersInput = document.getElementById("excludedNumbers");
-//
-//   function parseNumbers(input) {
-//     return input.value
-//       ? input.value
-//           .split(",")
-//           .map((num) => parseInt(num.trim(), 10))
-//           .filter((num) => num >= 1 && num <= 45)
-//       : [];
-//   }
-//
-//   function generateAndDisplay(fixed = [], excluded = []) {
-//     const lottoSet = generateLottoNumbers(fixed, excluded);
-//     resultContainer.innerHTML = `<p>${lottoSet.join(", ")}</p>`;
-//   }
-//
-//   generateButton.addEventListener("click", function () {
-//     generateAndDisplay();
-//   });
-//
-//   clickGenerate.addEventListener("click", function () {
-//     const fixedNumbers = parseNumbers(fixedNumbersInput);
-//     const excludedNumbers = parseNumbers(excludedNumbersInput);
-//     generateAndDisplay(fixedNumbers, excludedNumbers);
-//   });
-// });
