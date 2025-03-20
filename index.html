@@ -17,7 +17,6 @@
         max-width: 400px;
         margin: auto;
       }
-
       input,
       button {
         margin: 5px;
@@ -26,7 +25,6 @@
         width: 100%;
         box-sizing: border-box;
       }
-
       #result {
         margin-top: 20px;
         font-size: 18px;
@@ -49,15 +47,16 @@
   <body>
     <div class="container">
       <h1>로또 번호 생성기</h1>
+
       <button id="generate">랜덤 6개 생성</button>
 
       <label for="fixedNumbers">고정 숫자 (쉼표로 구분):</label>
       <input type="text" id="fixedNumbers" placeholder="예: 3,7,15" />
+      <button id="fixedGenerate">고정 숫자 포함 생성</button>
 
       <label for="excludedNumbers">제외 숫자 (쉼표로 구분):</label>
       <input type="text" id="excludedNumbers" placeholder="예: 10,20,30" />
-
-      <button id="clickGenerate">고정/제외 포함 생성</button>
+      <button id="excludedGenerate">제외 숫자 반영 생성</button>
 
       <div id="result"></div>
     </div>
